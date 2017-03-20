@@ -717,10 +717,13 @@ public class ActTaskService extends BaseService {
 		DefaultProcessDiagramGenerator processDiagramGeneratornew = new DefaultProcessDiagramGenerator();
 		// return processDiagramGeneratornew.generateDiagram(bpmnModel, "png",
 		// activeActivityIds);
+
 		return processDiagramGeneratornew.generateDiagram(bpmnModel, "png", activeActivityIds, highLightedFlows,
 				processEngine.getProcessEngineConfiguration().getActivityFontName(),
 				processEngine.getProcessEngineConfiguration().getLabelFontName(),
+				processEngine.getProcessEngineConfiguration().getAnnotationFontName(),
 				processEngine.getProcessEngineConfiguration().getClassLoader(), 1.0);
+
 	}
 
 	/**

@@ -123,6 +123,38 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	}
 
 	/**
+	 * 缩略字符串（不区分中英文字符）
+	 * 
+	 * @param str
+	 *            目标字符串
+	 * @param length
+	 *            截取长度
+	 * @return
+	 */
+	public static String abbr(String str, int length) {
+		if (str == null) {
+			return "";
+		}
+		try {
+			StringBuilder sb = new StringBuilder();
+			int currentLength = 0;
+			for (char c : replaceHtml(StringEscapeUtils.unescapeHtml4(str)).toCharArray()) {
+				currentLength += String.valueOf(c).getBytes("GBK").length;
+				if (currentLength <= length - 3) {
+					sb.append(c);
+				} else {
+					sb.append("...");
+					break;
+				}
+			}
+			return sb.toString();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
+
+	/**
 	 * 缩略字符串（不区分中英文字符）"GBK"
 	 */
 	public static String abbr(String str, int length, String encode) {

@@ -61,19 +61,37 @@
 
 	<!-- 设定插件仓库 -->
 	<pluginRepositories>
-
 		<pluginRepository>
 			<id>jeesite-repos</id>
 			<name>Jeesite Repository</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
 		</pluginRepository>
-
 	</pluginRepositories>
 
 	<!-- 依赖项定义 -->
 	<dependencies>
 
 		<!-- SPRING begin -->
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.abel533/ECharts -->
+		<dependency>
+			<groupId>com.github.abel533</groupId>
+			<artifactId>ECharts</artifactId>
+			<version>2.2.7</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>io.kamon</groupId>
@@ -85,6 +103,12 @@
 			<groupId>org.hyperic</groupId>
 			<artifactId>sigar</artifactId>
 			<version>1.6.5.132</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
+		<dependency>
+			<groupId>org.java-websocket</groupId>
+			<artifactId>Java-WebSocket</artifactId>
+			<version>1.3.0</version>
 		</dependency>
 
 
