@@ -324,6 +324,6 @@ public class ContactController extends BaseController {
 		map.put("code", "0");
 		map.put("data", data);
 		content = mapper.writeValueAsString(map);
- 		return content;
+		return content;
 	}
 }
