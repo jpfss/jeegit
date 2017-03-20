@@ -8,13 +8,13 @@ import org.dozer.DozerBeanMapper;
 import com.google.common.collect.Lists;
 
 /**
- * 简单封装Dozer, 实现深度转换Bean<->Bean的Mapper.<br>
+ * 简单封装Dozer, 实现深度转换Bean<->Bean的Mapper.</br>
  * 
  * 
- * 1. 持有Mapper的单例. <br>
- * 2. 返回值类型转换. <br>
- * 3. 批量转换Collection中的所有对象. <br>
- * 4. 区分创建新的B对象与将对象A值复制到已存在的B对象两种函数<br>
+ * 1. 持有Mapper的单例. </br>
+ * 2. 返回值类型转换. </br>
+ * 3. 批量转换Collection中的所有对象. </br>
+ * 4. 区分创建新的B对象与将对象A值复制到已存在的B对象两种函数</br>
  *
  * @since JDK 1.7.0+
  * @version V1.2.1 2017年3月17日

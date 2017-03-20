@@ -22,9 +22,9 @@ import com.jeesite.common.utils.Reflections;
 import com.jeesite.common.utils.StringUtils;
 
 /**
- * 使用Jaxb2.0实现XML<->Java Object的Mapper.<br>
+ * 使用Jaxb2.0实现XML<->Java Object的Mapper.</br>
  * 
- * 在创建时需要设定所有需要序列化的Root对象的Class. 特别支持Root对象是Collection的情形.<br>
+ * 在创建时需要设定所有需要序列化的Root对象的Class. 特别支持Root对象是Collection的情形.</br>
  *
  * @since JDK 1.7.0+
  * @version V1.2.1 2017年3月17日

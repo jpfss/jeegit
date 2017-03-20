@@ -12,7 +12,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 /**
- * JSR303 Validator(Hibernate Validator)工具类<br>
+ * JSR303 Validator(Hibernate Validator)工具类</br>
  * https://github.com/springside/springside4/wiki
  * 
  * @since JDK 1.7.0+

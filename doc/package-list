@@ -1,2 +1,12 @@
 com.jeesite.common.annotation
 com.jeesite.common.beanvalidator
+com.jeesite.common.config
+com.jeesite.common.filter
+com.jeesite.common.json
+com.jeesite.common.mail
+com.jeesite.common.mapper
+com.jeesite.common.mapper.adapters
+com.jeesite.common.persistence
+com.jeesite.common.persistence.annotation
+com.jeesite.common.persistence.dialect
+com.jeesite.common.persistence.dialect.db

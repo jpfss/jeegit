@@ -14,13 +14,13 @@ import org.apache.ibatis.type.MappedJdbcTypes;
 
 /**
  * 
- * 自定义类型处理器<br>
+ * 自定义类型处理器</br>
  * 
- * 解决mybatis存储blob字段后，出现乱码的问题<br>
+ * 解决mybatis存储blob字段后，出现乱码的问题</br>
  * 
  * 
- * 配置案例：mapper.xml<br>
- * <result typeHandler="com.jeesite.common.mapper.ConvertBlobTypeHandler"/><br>
+ * 配置案例：mapper.xml</br>
+ * <result typeHandler="com.jeesite.common.mapper.ConvertBlobTypeHandler"/></br>
  * 
  * @since JDK 1.7.0+
  * @version V1.2.1 2017年3月17日

@@ -7,6 +7,7 @@ import java.util.TimeZone;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +28,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 /**
- * 简单封装Jackson，实现JSON String<->Java Object的Mapper. 封装不同的输出风格<br>
+ * 简单封装Jackson，实现JSON String<->Java Object的Mapper. 封装不同的输出风格</br>
  * 使用不同的builder函数创建实例.
  *
  * @since JDK 1.7.0+
@@ -176,10 +177,10 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * 构造泛型的Collection Type<br>
-	 * 如: ArrayList<MyBean> <br>
-	 * 则调用constructCollectionType(ArrayList.class,MyBean.class) <br>
-	 * HashMap <String,MyBean> <br>
+	 * 构造泛型的Collection Type</br>
+	 * 如: ArrayList<MyBean> </br>
+	 * 则调用constructCollectionType(ArrayList.class,MyBean.class) </br>
+	 * HashMap <String,MyBean> </br>
 	 * 则调用(HashMap.class,String.class, MyBean.class)
 	 * 
 	 * @param collectionClass
@@ -194,21 +195,29 @@ public class JsonMapper extends ObjectMapper {
 
 	/**
 	 * 當JSON裡只含有Bean的部分屬性時，更新一個已存在Bean，只覆蓋該部分的屬性.
+	 * 
+	 * @param jsonString
+	 * @param object
+	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> T update(String jsonString, T object) {
 		try {
 			return (T) this.readerForUpdating(object).readValue(jsonString);
 		} catch (JsonProcessingException e) {
-			logger.warn("update json string:" + jsonString + " to object:" + object + " error.", e);
+			logger.error("update json string:{}to object:{} error.", jsonString, object, e);
 		} catch (IOException e) {
-			logger.warn("update json string:" + jsonString + " to object:" + object + " error.", e);
+			logger.error("update json string:{} to object:{} error.", jsonString, object, e);
 		}
 		return null;
 	}
 
 	/**
-	 * 輸出JSONP格式數據.
+	 * 輸出JSONP格式数据
+	 * 
+	 * @param functionName
+	 * @param object
+	 * @return
 	 */
 	public String toJsonP(String functionName, Object object) {
 		return toJson(new JSONPObject(functionName, object));
@@ -217,6 +226,8 @@ public class JsonMapper extends ObjectMapper {
 	/**
 	 * 設定是否使用Enum的toString函數來讀寫Enum, 為False時時使用Enum的name()函數來讀寫Enum, 默認為False.
 	 * 注意本函數一定要在Mapper創建後, 所有的讀寫動作之前調用.
+	 * 
+	 * @return JsonMapper
 	 */
 	public JsonMapper enableEnumUseToString() {
 		this.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
@@ -225,8 +236,10 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * 支持使用Jaxb的Annotation，使得POJO上的annotation不用与Jackson耦合。
+	 * * 支持使用Jaxb的Annotation，使得POJO上的annotation不用与Jackson耦合。
 	 * 默认会先查找jaxb的annotation，如果找不到再找jackson的。
+	 * 
+	 * @return JsonMapper
 	 */
 	public JsonMapper enableJaxbAnnotation() {
 		JaxbAnnotationModule module = new JaxbAnnotationModule();
@@ -236,6 +249,8 @@ public class JsonMapper extends ObjectMapper {
 
 	/**
 	 * 允许单引号 允许不带引号的字段名称
+	 * 
+	 * @return JsonMapper
 	 */
 	public JsonMapper enableSimple() {
 		this.configure(Feature.ALLOW_SINGLE_QUOTES, true);
@@ -245,6 +260,8 @@ public class JsonMapper extends ObjectMapper {
 
 	/**
 	 * 取出Mapper做进一步的设置或使用其他序列化API.
+	 * 
+	 * @return ObjectMapper
 	 */
 	public ObjectMapper getMapper() {
 		return this;
@@ -254,7 +271,7 @@ public class JsonMapper extends ObjectMapper {
 	 * 对象转换为JSON字符串
 	 * 
 	 * @param object
-	 * @return
+	 * @return String
 	 */
 	public static String toJsonString(Object object) {
 		return JsonMapper.getInstance().toJson(object);
@@ -265,7 +282,7 @@ public class JsonMapper extends ObjectMapper {
 	 * 
 	 * @param jsonString
 	 * @param clazz
-	 * @return
+	 * @return Object
 	 */
 	public static Object fromJsonString(String jsonString, Class<?> clazz) {
 		return JsonMapper.getInstance().fromJson(jsonString, clazz);

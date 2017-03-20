@@ -120,7 +120,7 @@ public class Global {
 	}
 
 	/**
-	 * 获取URL后缀<br>
+	 * 获取URL后缀</br>
 	 * 例如：localhost:8080/a.html
 	 * 
 	 * @return 请求的后缀名
